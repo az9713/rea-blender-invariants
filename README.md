@@ -1,12 +1,16 @@
 # Invariant Ledger for Blender
 
-An **in-app scientific validation add-on**: declare a geometric contract, measure
-the consequences of selected Geometry Nodes/object-scale edits, then test those
-edits individually in a clean Blender process.
+A model can still look fine after an edit even when it has become much larger than you intended. This add-on lets you save a few rules about its size and mesh structure, then check whether your edits broke those rules.
 
-[Interactive explanation](https://az9713.github.io/rea-blender-invariants/) ·
-[Installable release](https://github.com/az9713/rea-blender-invariants/releases/tag/v0.1.1) ·
-[Pinned investigation](investigation/COMPARISON.md)
+Suppose you are making a part that must stay near its original size, or exploring a design without wanting its volume to change too much. Looking at the viewport is a poor way to judge that. Making a solid twice as wide, tall and deep gives it eight times the volume, not twice the volume.
+
+**Example:** The cube below starts with sides of 2 units: volume 8 and surface area 24. One size control multiplies each side by 2; another multiplies it by 1.25. Together they make each side 5 units, so volume becomes 125 and area becomes 150. The added feature is the report that explains this jump and flags the example's chosen 20% limits. Making the cube bigger is ordinary Blender behavior.
+
+**What you install:** An experimental Blender add-on for checking model changes.
+
+**Current scope:** The calculations and repeat runs were tested in Blender 5.2.3. The sidebar still needs a test in a normal Blender window. This release handles a narrow set of scale changes; it is not a general check of every modeling operation, simulation or 3D-printing requirement.
+
+[Live guide](https://az9713.github.io/rea-blender-invariants/) · [Download packages](https://github.com/az9713/rea-blender-invariants/releases/tag/v0.1.1)
 
 ## The meaningful before/after
 
