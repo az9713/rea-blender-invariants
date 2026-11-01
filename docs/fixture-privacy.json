@@ -1,0 +1,20 @@
+{
+  "format": "Pinned uncompressed Blender5.2 fixture",
+  "bytes": 574040,
+  "cleared_spans": 2,
+  "cleared_bytes": 112,
+  "blocks": [
+    {
+      "code": "DATA",
+      "bytes_cleared": 33
+    },
+    {
+      "code": "IM",
+      "bytes_cleared": 79
+    }
+  ],
+  "new_sha256": "dec5440272bd23de4b0ac9ed81983e1299c9347ff5f5a18094ee347e932fc58e",
+  "structural_layout_unchanged": true,
+  "known_local_markers_remaining": false,
+  "scope": "Exact synthetic fixture only; clears matched printable metadata/path-padding spans, not an arbitrary user scene sanitizer"
+}

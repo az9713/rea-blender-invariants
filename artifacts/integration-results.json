@@ -6,8 +6,8 @@
     3
   ],
   "build_hash": "e13b728c6880",
-  "passed": 10,
-  "total": 10,
+  "passed": 11,
+  "total": 11,
   "results": [
     {
       "name": "project_isolated_portable_runtime",
@@ -44,6 +44,30 @@
       "details": {
         "baseline_copy_exists": true,
         "external_image_and_cache_hashed": true
+      }
+    },
+    {
+      "name": "synthetic_fixture_metadata_padding_sanitized",
+      "passed": true,
+      "details": {
+        "format": "Pinned uncompressed Blender5.2 fixture",
+        "bytes": 574040,
+        "cleared_spans": 2,
+        "cleared_bytes": 112,
+        "blocks": [
+          {
+            "code": "DATA",
+            "bytes_cleared": 33
+          },
+          {
+            "code": "IM",
+            "bytes_cleared": 79
+          }
+        ],
+        "new_sha256": "dec5440272bd23de4b0ac9ed81983e1299c9347ff5f5a18094ee347e932fc58e",
+        "structural_layout_unchanged": true,
+        "known_local_markers_remaining": false,
+        "scope": "Exact synthetic fixture only; clears matched printable metadata/path-padding spans, not an arbitrary user scene sanitizer"
       }
     },
     {
@@ -108,10 +132,13 @@
     }
   ],
   "tested_files": {
-    "blender_invariants/__init__.py": "48e602fe66c367fe04977a872185c6b54605b5f4f509f90028f7ab514d6ecdf4",
+    "blender_invariants/__init__.py": "718aac2eeef2f781f6e55786a27d2dfc84e95a55837677b1ecb0215e5acffdd7",
     "blender_invariants/ui.py": "d84413b2faae17fd42caa14dbd8aed5f79fc54fa3529682cdcffd6c19a24e617",
     "blender_invariants/adapter.py": "da8fc87d1200382e5cc45579e02abfc49a497a75c573babd66af5f0739c2d088",
     "blender_invariants/core.py": "338e4449b5198532a3015a4fa5a1f4bf47a26c8a194e3c8409ae7e48d335ac26",
-    "blender_invariants/replay_worker.py": "8e69923c5795d910a88fb269188c51251d09b9dbfb032b47d8b2285310c52d92"
+    "blender_invariants/replay_worker.py": "8e69923c5795d910a88fb269188c51251d09b9dbfb032b47d8b2285310c52d92",
+    "tests/integration_blender.py": "d438645c1153af26129fc8701f7c540c35c90caa00c202f7c4fd80cf7ba4fd26",
+    "scripts/scrub_synthetic_fixture.py": "dd4f65a4792bc437022dafb5c18f5cb8bc1e2226e344ba0fe60a32e5f691f82c",
+    "tests/test_fixture_privacy.py": "470af83356ffd404880eb412aeb02b446a31845bd4bef2f4333722d2a58dbd2c"
   }
 }

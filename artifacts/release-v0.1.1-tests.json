@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "Actual v0.1.1 release ZIP installed/enabled; installed code hash-matches source",
+    "Extracted baseline bytes match regenerated manifest",
+    "Sanitized baseline opens and retains actual evaluated volume8 and declared controls",
+    "Active relative image filename and external image bytes preserved",
+    "Actual different-process extracted release replay reproduces combined125 and isolated15.625/64 volumes"
+  ],
+  "native_Blender": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "different_process_verified": true,
+  "baseline_sha256": "dec5440272bd23de4b0ac9ed81983e1299c9347ff5f5a18094ee347e932fc58e",
+  "GUI_drawing_verified": false,
+  "baseline_measured_volume": 7.999999999999999,
+  "combined_measured_volume": 124.99999999999999,
+  "tested_release_script_sha256": "5a758d873f2c733a096a19f2bad8979de26d6b87aac37e9b4434782fdebdd253",
+  "limits": [
+    "Native panel registration/operators tested headlessly; prior hidden-window GUI access violation remains unresolved.",
+    "Selected mesh summaries only; not full geometry, simulation or render equivalence."
+  ]
+}

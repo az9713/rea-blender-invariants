@@ -30,9 +30,9 @@ def write_zip(path, entries):
 
 
 def build():
-    subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_core.py'], cwd=ROOT, check=True)
+    subprocess.run([sys.executable, '-m', 'unittest', 'discover', '-s', 'tests', '-p', 'test_*.py'], cwd=ROOT, check=True)
     native = json.loads((ARTIFACTS / 'integration-results.json').read_text())
-    if native['passed'] != native['total'] or native['total'] < 10:
+    if native['passed'] != native['total'] or native['total'] < 11:
         raise RuntimeError('Real Blender integration must pass before release')
     for name, expected in native['tested_files'].items():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != expected:
@@ -46,9 +46,12 @@ def build():
     replay = json.loads((ARTIFACTS / 'session/replay-results.json').read_text())
     if not replay.get('verdict', {}).get('matches'):
         raise RuntimeError('Final synthetic replay fixture must pass')
+    privacy=json.loads((ARTIFACTS/'fixture-privacy.json').read_text())
+    if privacy['known_local_markers_remaining'] or not privacy['structural_layout_unchanged']:
+        raise RuntimeError('Fixture privacy remediation incomplete')
     session = ARTIFACTS / 'session'
     manifest = json.loads((session / 'manifest.json').read_text())
-    if hashlib.sha256((session / 'baseline.blend').read_bytes()).hexdigest() != manifest['baseline_sha256']:
+    if hashlib.sha256((session / 'baseline.blend').read_bytes()).hexdigest() != manifest['baseline_sha256'] or manifest['baseline_sha256']!=privacy['new_sha256']:
         raise RuntimeError('Example baseline hash differs from manifest')
     for asset in manifest['assets']:
         if asset['status'] == 'hashed':
@@ -57,10 +60,10 @@ def build():
                 raise RuntimeError('Example external identity differs')
     add_on = [(ROOT / 'blender_invariants' / name, 'blender_invariants/' + name) for name in PACKAGE_FILES]
     add_on += [(ROOT / name, 'blender_invariants/' + name) for name in ['LICENSE', 'NOTICE.md', 'README.md']]
-    write_zip(ARTIFACTS / 'InvariantLedger-0.1.0-addon.zip', add_on)
+    write_zip(ARTIFACTS / 'InvariantLedger-0.1.1-addon.zip', add_on)
     example = [(session / name, name) for name in FIXTURE_FILES]
     example += [(ROOT / name, name) for name in ['README.md', 'NOTICE.md', 'LICENSE']]
-    write_zip(ARTIFACTS / 'InvariantLedger-0.1.0-example.zip', example)
+    write_zip(ARTIFACTS / 'InvariantLedger-0.1.1-example.zip', example)
     (ROOT / 'docs/evidence.json').write_text(json.dumps(native, indent=2) + '\n')
     print('Native evidence and exact-path packages validated')
 

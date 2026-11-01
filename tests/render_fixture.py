@@ -23,6 +23,7 @@ scene.render.resolution_x=640
 scene.render.resolution_y=480
 scene.render.resolution_percentage=100
 scene.render.image_settings.file_format='PNG'
+scene.render.use_stamp_filename=False
 scene.world.color=(.025,.035,.05)
 material=bpy.data.materials.new('SyntheticLedgerTeal')
 material.diffuse_color=(.08,.65,.48,1)
@@ -59,3 +60,7 @@ after=adapter.measured_object(obj)
 scene.render.filepath=str(ROOT/'docs/native-after.png')
 bpy.ops.render.render(write_still=True)
 (ROOT/'artifacts/render-results.json').write_text(json.dumps({'native_cpu_render':True,'seed':17,'samples':32,'before_volume':before['volume'],'after_volume':after['volume'],'before_area':before['area'],'after_area':after['area'],'limit':'Illustrative renders of the measured synthetic fixture. No render equivalence test or GUI screenshot claim.'},indent=2)+'\n')
+
+# Blender can embed source filenames as PNG stamp metadata without visible text.
+from scripts.strip_png_metadata import strip_generated
+strip_generated(ROOT)

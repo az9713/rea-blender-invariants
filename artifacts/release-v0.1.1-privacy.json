@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "replacement_version": "0.1.1",
+  "inner_baseline_format": "Uncompressed BLENDER17-01v0502; all raw block data inspected",
+  "baseline_bytes": 574040,
+  "baseline_sha256": "dec5440272bd23de4b0ac9ed81983e1299c9347ff5f5a18094ee347e932fc58e",
+  "known_local_user_and_workspace_markers_remaining": false,
+  "ASCII_and_UTF16LE_checked": true,
+  "archive_CRC_checked": true,
+  "reviewed_structure": "Sanitizer checks exact header, bounded 32-byte blocks and complete ENDB; only printable NUL-terminated spans in DATA/IM/GLOB accepted; block structure unchanged",
+  "cleared_spans": 2,
+  "cleared_bytes": 112,
+  "extracted_native_install_and_different_process_replay_passed": true,
+  "old_archives_preserved_locally": true,
+  "withdraw_after_replacement_verification": [
+    "InvariantLedger-0.1.0-example.zip"
+  ],
+  "scope": "Exact owned synthetic fixture only; no arbitrary user-document sanitation claim"
+}

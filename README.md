@@ -5,7 +5,7 @@ the consequences of selected Geometry Nodes/object-scale edits, then test those
 edits individually in a clean Blender process.
 
 [Interactive explanation](https://az9713.github.io/rea-blender-invariants/) ·
-[Installable release](https://github.com/az9713/rea-blender-invariants/releases/tag/v0.1.0) ·
+[Installable release](https://github.com/az9713/rea-blender-invariants/releases/tag/v0.1.1) ·
 [Pinned investigation](investigation/COMPARISON.md)
 
 ## The meaningful before/after
@@ -27,7 +27,7 @@ the add-on measures the counterfactuals instead of guessing an additive explanat
 
 Tested on a separately acquired **Blender 5.2.3 LTS**, build `e13b728c6880`.
 
-1. Download `InvariantLedger-0.1.0-addon.zip` from Releases.
+1. Download `InvariantLedger-0.1.1-addon.zip` from Releases.
 2. In Blender Preferences → Add-ons → Install from Disk, select the ZIP and enable
    **Invariant Ledger**. The native test uses those actual installation/enable APIs.
 3. Select a mesh object. Open the 3D View sidebar (`N`) → **Invariant Ledger**.
@@ -46,14 +46,22 @@ Capture fixes the contract. Changing the UI interval fields later does not silen
 rewrite it; recapture explicitly. Keep prior evidence elsewhere before recapturing
 the same workspace, because `baseline.blend` and the manifest are replaced.
 
-`InvariantLedger-0.1.0-example.zip` contains the original synthetic baseline,
+`InvariantLedger-0.1.1-example.zip` contains the original synthetic baseline,
 portable relative asset paths, manifest, expected evidence and dependencies. Extract
 it into a directory. The `.blend` contains the baseline; the manifest supplies the
 declared later edits. No user scene or proprietary runtime is bundled.
 
+## Release fixture privacy repair (0.1.1)
+
+The previous 0.1.0 example scene retained local folder text in cached file-selector metadata and stale bytes after a valid relative image filename. The .blend used Zstandard compression, so scanning only its enclosing ZIP did not inspect those bytes. The add-on source itself contained no such build paths.
+
+The new release regenerates our synthetic scene uncompressed, clears two bounded printable metadata/padding spans without changing any binary block length or address, updates the baseline SHA and replay manifests, then reopens/replays it in real Blender. The active relative image path remains valid; image/cache hashes and measured Geometry Nodes outputs still match. See [exact fixture report](artifacts/fixture-privacy.json).
+
+This helper is only for the owned, pinned Blender 5.2 synthetic fixture. It is not an arbitrary user-document sanitizer and does not run during normal add-on capture. The render pipeline also removes PNG textual/EXIF metadata while preserving every IDAT image byte, because Blender embeds scene filenames even without visible stamp text. See [render privacy report](artifacts/render-privacy.json). Review your own .blend and embedded metadata before publishing. The original 0.1.0 local archives are preserved as incident evidence; the GitHub distributor should retire its old example download after validating this replacement.
+
 ## What the verification proves
 
-**12 pure policy tests and 10 real Blender integration checks pass.** Native checks
+**26 pure tests and 11 real Blender integration checks pass.** Native checks
 install/enable the candidate ZIP, hash-compare installed source, evaluate Geometry
 Nodes, invoke the actual operators, verify a different replay PID, measure isolated
 counterfactuals, reject cache tampering, flag untracked edits and refuse open-mesh
@@ -77,7 +85,7 @@ is supplied so this remaining check can be retried on another supported display.
 The pure core needs Python 3.9+; acquisition/build helpers use Python 3.11+:
 
 ```powershell
-python -m unittest discover -s tests -p test_core.py -v
+python -m unittest discover -s tests -p 'test_*.py' -v
 python scripts/acquire_blender.py
 python scripts/stage_addon.py
 ./scripts/run_portable.ps1

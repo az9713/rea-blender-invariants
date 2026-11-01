@@ -113,6 +113,22 @@ def capture_baseline():
     return {'baseline_copy_exists': True, 'external_image_and_cache_hashed': True}
 
 
+def scrub_public_synthetic_baseline():
+    global baseline
+    # Release fixture only: save the unchanged synthetic baseline uncompressed,
+    # scrub cached UI folder strings and stale relative-image string padding.
+    # No arbitrary user document is ever processed by this test helper.
+    bpy.ops.wm.save_as_mainfile(filepath=str(SESSION / 'baseline.blend'), copy=True,
+                               check_existing=False, compress=False)
+    sys.path.insert(0,str(ROOT))
+    from scripts.scrub_synthetic_fixture import scrub
+    report=scrub(SESSION/'baseline.blend',ROOT)
+    baseline['baseline_sha256']=report['new_sha256']
+    (SESSION/'capture.json').write_text(json.dumps(baseline,indent=2)+'\n')
+    (ARTIFACTS/'fixture-privacy.json').write_text(json.dumps(report,indent=2)+'\n')
+    return report
+
+
 def measured_changes():
     adapter.set_gn_input(modifier, scale_socket.identifier, 2.0)
     obj.scale = (1.25, 1.25, 1.25)
@@ -213,6 +229,7 @@ try:
     check('real_zip_install_register_panel_and_operators', install_and_register)
     check('real_geometry_nodes_cube_evaluated_in_world_space', geometry_node_fixture)
     check('baseline_blend_copy_and_external_identities', capture_baseline)
+    check('synthetic_fixture_metadata_padding_sanitized', scrub_public_synthetic_baseline)
     check('declared_GN_and_object_scale_invariant_violations', measured_changes)
     check('new_process_replay_and_isolated_edit_counterfactuals', real_clean_process_replay)
     check('cache_tamper_independently_refused', cache_tamper_refused)
@@ -221,6 +238,7 @@ try:
     check('final_synthetic_replay_fixture_restored_and_verified', restore_final_replay)
 finally:
     files = ['blender_invariants/' + name for name in ['__init__.py', 'ui.py', 'adapter.py', 'core.py', 'replay_worker.py']]
+    files += ['tests/integration_blender.py','scripts/scrub_synthetic_fixture.py','tests/test_fixture_privacy.py']
     report = {'runtime': 'Real portable Blender + evaluated Geometry Nodes; no mocked bpy',
               'blender_version': list(bpy.app.version), 'build_hash': bpy.app.build_hash.decode(),
               'passed': sum(r['passed'] for r in results), 'total': len(results), 'results': results,

@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "scope": "Current synthetic render PNGs; private before-generation copies retained locally only. All textual/EXIF metadata removed. Every IDAT byte unchanged; no pixel decoding/re-encoding.",
+  "images": [
+    {
+      "file": "native-before.png",
+      "before_metadata_types": [
+        "eXIf",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt"
+      ],
+      "before_metadata_keys": [
+        "(EXIF)",
+        "File",
+        "Date",
+        "Time",
+        "Frame",
+        "Camera",
+        "Scene",
+        "RenderTime",
+        "cycles.ViewLayer.samples",
+        "cycles.ViewLayer.total_time",
+        "cycles.ViewLayer.render_time",
+        "cycles.ViewLayer.synchronization_time"
+      ],
+      "after_metadata_chunks": [],
+      "retained_image_data_bytes": 247229,
+      "image_data_sha256": "77e1398268d0f876d1432055aca4b0557741e0051f5e46c2efff64f45332769f",
+      "IDAT_bytes_preserved": true,
+      "current_png_sha256": "a831097a6894d6b1f4f1ab3791c04a49c1afd613b4f257de2a58ca9f8ca700e3"
+    },
+    {
+      "file": "native-after.png",
+      "before_metadata_types": [
+        "eXIf",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt",
+        "tEXt"
+      ],
+      "before_metadata_keys": [
+        "(EXIF)",
+        "File",
+        "Date",
+        "Time",
+        "Frame",
+        "Camera",
+        "Scene",
+        "RenderTime",
+        "cycles.ViewLayer.samples",
+        "cycles.ViewLayer.total_time",
+        "cycles.ViewLayer.render_time",
+        "cycles.ViewLayer.synchronization_time"
+      ],
+      "after_metadata_chunks": [],
+      "retained_image_data_bytes": 285355,
+      "image_data_sha256": "0d4489d807d3e22d58089108b0521dd748db171c2139ad0bb0e60f62ed366603",
+      "IDAT_bytes_preserved": true,
+      "current_png_sha256": "b550d233234bb358ccb194ebe8b53cab996e4e9efd9a4d9bba119a0f22820bf0"
+    }
+  ],
+  "prior_Git_objects_rewritten_by_worker": false
+}
