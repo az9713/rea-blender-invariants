@@ -1,0 +1,7 @@
+{
+  "native_gui_draw_verified": false,
+  "native_headless_registration_and_operators_verified": true,
+  "observed_failure": "Hidden-window Blender startup/draw encountered EXCEPTION_ACCESS_VIOLATION in blender.exe. Owned GUI processes were terminated by the 60-second test timeout.",
+  "scope": "The actual install ZIP, panel class registration and operators are verified in headless native integration. Full GUI drawing is not verified. CPU-rendered geometry illustrations are not UI screenshots.",
+  "explicit_opengl_retry": "Also attempted; native GUI still timed out after an access-violation diagnostic. Root cause remains unknown."
+}

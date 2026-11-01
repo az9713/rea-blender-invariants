@@ -1,0 +1,31 @@
+{
+  "repository": "https://github.com/blender/blender",
+  "build": "5.2.3",
+  "commit": "e13b728c6880d3084d9d57c30031ed5df8b39dee",
+  "files": [
+    {
+      "path": "investigation/public-source/COPYING",
+      "upstream_path": "COPYING",
+      "url": "https://raw.githubusercontent.com/blender/blender/e13b728c6880d3084d9d57c30031ed5df8b39dee/COPYING",
+      "sha256": "19e6f4b541772f9d7b98a52bdbca3ebd5ef9e404956a9a6de68bfc3c1a178387"
+    },
+    {
+      "path": "investigation/public-source/geometry_nodes.py",
+      "upstream_path": "scripts/startup/bl_operators/geometry_nodes.py",
+      "url": "https://raw.githubusercontent.com/blender/blender/e13b728c6880d3084d9d57c30031ed5df8b39dee/scripts/startup/bl_operators/geometry_nodes.py",
+      "sha256": "f4a77612371116bf699900270a7483748768ce405c72c5d4f39d362f1b4d90f0"
+    },
+    {
+      "path": "investigation/public-source/space_topbar.py",
+      "upstream_path": "scripts/startup/bl_ui/space_topbar.py",
+      "url": "https://raw.githubusercontent.com/blender/blender/e13b728c6880d3084d9d57c30031ed5df8b39dee/scripts/startup/bl_ui/space_topbar.py",
+      "sha256": "437b3dfc69d101140ab994a10484e4c954b650514b173a45056bd04e3ae8826a"
+    },
+    {
+      "path": "investigation/public-source/GPL-license.txt",
+      "upstream_path": "doc/license/GPL-license.txt",
+      "url": "https://raw.githubusercontent.com/blender/blender/e13b728c6880d3084d9d57c30031ed5df8b39dee/doc/license/GPL-license.txt",
+      "sha256": "f2703dec1b0118070caabd3302e21738c00211b0cc3260dbeb1168d6eda726b7"
+    }
+  ]
+}

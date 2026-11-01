@@ -1,0 +1,117 @@
+{
+  "runtime": "Real portable Blender + evaluated Geometry Nodes; no mocked bpy",
+  "blender_version": [
+    5,
+    2,
+    3
+  ],
+  "build_hash": "e13b728c6880",
+  "passed": 10,
+  "total": 10,
+  "results": [
+    {
+      "name": "project_isolated_portable_runtime",
+      "passed": true,
+      "details": {
+        "executable": ".runtime/blender/blender-5.2.3-windows-x64/blender.exe",
+        "config": ".runtime/user/config",
+        "scripts": ".runtime/user/scripts",
+        "datafiles": ".runtime/user/datafiles"
+      }
+    },
+    {
+      "name": "real_zip_install_register_panel_and_operators",
+      "passed": true,
+      "details": {
+        "installed_zip": true,
+        "panel_registered": true,
+        "source_files_hash_matched": true
+      }
+    },
+    {
+      "name": "real_geometry_nodes_cube_evaluated_in_world_space",
+      "passed": true,
+      "details": {
+        "volume": 7.999999999999999,
+        "area": 24.0,
+        "seed": 17,
+        "actual_geometry_nodes": true
+      }
+    },
+    {
+      "name": "baseline_blend_copy_and_external_identities",
+      "passed": true,
+      "details": {
+        "baseline_copy_exists": true,
+        "external_image_and_cache_hashed": true
+      }
+    },
+    {
+      "name": "declared_GN_and_object_scale_invariant_violations",
+      "passed": true,
+      "details": {
+        "volume_ratio": 15.625,
+        "area_ratio": 6.25,
+        "declared_operations": 2,
+        "violations": [
+          "area ratio 6.25 violates [0.8, 1.2]",
+          "volume ratio 15.625 violates [0.8, 1.2]"
+        ]
+      }
+    },
+    {
+      "name": "new_process_replay_and_isolated_edit_counterfactuals",
+      "passed": true,
+      "details": {
+        "different_process_verified": true,
+        "isolated_counterfactual_volumes": [
+          15.624999999999998,
+          63.99999999999999
+        ],
+        "combined_volume": 124.99999999999999,
+        "identities_verified": 2
+      }
+    },
+    {
+      "name": "cache_tamper_independently_refused",
+      "passed": true,
+      "details": {
+        "analysis_flags_identity_change": true,
+        "independent_child_rejected_tamper": true
+      }
+    },
+    {
+      "name": "untracked_mesh_and_node_graph_edits_flagged",
+      "passed": true,
+      "details": {
+        "base_mesh_edit_flagged": true,
+        "internal_node_edit_flagged": true,
+        "nonpositive_scale_flagged": true
+      }
+    },
+    {
+      "name": "real_open_mesh_has_unsupported_volume",
+      "passed": true,
+      "details": {
+        "volume": null,
+        "unsupported": [
+          "open_nonmanifold_or_loose_mesh"
+        ]
+      }
+    },
+    {
+      "name": "final_synthetic_replay_fixture_restored_and_verified",
+      "passed": true,
+      "details": {
+        "final_fixture_manifest_verified": true
+      }
+    }
+  ],
+  "tested_files": {
+    "blender_invariants/__init__.py": "48e602fe66c367fe04977a872185c6b54605b5f4f509f90028f7ab514d6ecdf4",
+    "blender_invariants/ui.py": "d84413b2faae17fd42caa14dbd8aed5f79fc54fa3529682cdcffd6c19a24e617",
+    "blender_invariants/adapter.py": "da8fc87d1200382e5cc45579e02abfc49a497a75c573babd66af5f0739c2d088",
+    "blender_invariants/core.py": "338e4449b5198532a3015a4fa5a1f4bf47a26c8a194e3c8409ae7e48d335ac26",
+    "blender_invariants/replay_worker.py": "8e69923c5795d910a88fb269188c51251d09b9dbfb032b47d8b2285310c52d92"
+  }
+}

@@ -1,0 +1,9 @@
+.runtime/
+__pycache__/
+*.py[cod]
+investigation/audit-baseline.private.json
+handoff.json
+artifacts/*.zip
+artifacts/*.sha256
+artifacts/session/
+*.blend*

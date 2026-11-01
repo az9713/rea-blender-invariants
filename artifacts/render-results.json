@@ -1,0 +1,10 @@
+{
+  "native_cpu_render": true,
+  "seed": 17,
+  "samples": 32,
+  "before_volume": 7.999999999999999,
+  "after_volume": 124.99999999999999,
+  "before_area": 24.0,
+  "after_area": 150.0,
+  "limit": "Illustrative renders of the measured synthetic fixture. No render equivalence test or GUI screenshot claim."
+}
