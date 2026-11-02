@@ -12,6 +12,18 @@ Suppose you are making a part that must stay near its original size, or explorin
 
 [Live guide](https://az9713.github.io/rea-blender-invariants/) · [Download packages](https://github.com/az9713/rea-blender-invariants/releases/tag/v0.1.1)
 
+<!-- rea-release-expectations:start -->
+## What to expect from this release
+
+**Status: experimental.** Read the tested scope and remaining work below before choosing this release for your workflow.
+
+- **What you get:** An add-on intended to run inside Blender, with a separate browser explanation. It checks supported model changes; it is not a replacement Blender executable.
+- **Verified so far:** Size and mesh-structure measurements, recorded scale changes, repeat checks in fresh Blender processes, extracted release checks and native CPU renders were executed.
+- **Still needs testing or implementation:** The sidebar panel and a complete interactive modeling session still need testing in a normal Blender window.
+- **Relationship to the original app:** Supported object-scale and Geometry Nodes size changes are a small part of Blender. Passing these checks does not certify arbitrary modifiers, simulations, manufacturing suitability or every modeling edit.
+
+<!-- rea-release-expectations:end -->
+
 ## The meaningful before/after
 
 | Before | With Invariant Ledger |
